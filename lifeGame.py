@@ -1,3 +1,4 @@
+
 # defining class Universe for the Universe blueprint
 class Universe:
     def __init__(self, size):
@@ -50,17 +51,19 @@ class Universe:
             print()
         print("-------------------------------")
 
+def run_simulation(size, iterations):
+    universe = Universe(size)
+
+    universe.set_cell(5, 6, 1)
+    universe.set_cell(6, 7, 1)
+    universe.set_cell(7, 5, 1)
+    universe.set_cell(7, 6, 1)
+    universe.set_cell(7, 7, 1)
+
+    for _ in range(iterations):
+        universe.output_grid()
+        universe = universe.next_tick()
 
 
-universe = Universe(13) # size 13 chosen for simulation
-
-universe.set_cell(5, 6, 1)
-universe.set_cell(6, 7, 1)
-universe.set_cell(7, 5, 1)
-universe.set_cell(7, 6, 1)
-universe.set_cell(7, 7, 1)
-
-# simulating 7 iterations
-for _ in range(7):
-    universe.output_grid()
-    universe = universe.next_tick()
+# Run the simulation
+run_simulation(13, 7)  # Adjust size and iterations as needed
