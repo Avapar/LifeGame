@@ -28,6 +28,7 @@ class Universe:
                 count += self.get_cell(i, j)
         return count
 
+    # calculate the setting in next teration/tick
     def next_tick(self):
         new_universe = Universe(self.size)
         for x in range(self.size):
@@ -66,4 +67,4 @@ def run_simulation(size, iterations):
 
 
 # Run the simulation
-run_simulation(13, 7)  # Adjust size and iterations as needed
+run_simulation(13, 7)  # Adjust size of grid and iterations respectively
